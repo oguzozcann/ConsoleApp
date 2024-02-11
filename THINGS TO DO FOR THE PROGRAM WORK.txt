@@ -1,0 +1,104 @@
+MySQL Kurulumu Yapıldıktan Sonra MySQL Command Line Client (MySQL komut sayfası) na yazılması gereken komutlar
+
+Bu sayfada veri tabanı oluşturmak için gerekli kodlar mevcuttur.
+
+Tavsiye Edilen Programı Çalıştırma Aşamaları:
+
+1-Tabloların hepsini aşağıda  kodlarda belirtildiği şekilde oluşturunuz.---(Programın çalışabilmesi için kesinlikle yapılmalı)
+2-Yonetici varsayılan hesabını atayınız.---(Programın çalışabilmesi için kesinlikle yapılmalı)
+3-Yonetici girisi yapıp örnek ürünler ve kuryelerin atamalarını gerçekleştiriniz.
+4-Kullanıcı hesabı oluşturup yapmak istediğiniz işlemleri gerçekleştirip programı ve programın çalışma prensibini kontrol edebilirsiniz.  
+5-Son olarak yonetici girisi yapıp yonetici sayfasının işleyişini kontrol edebilirsiniz
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+1-)Veri Tabanı Oluşturma kodu:
+CREATE DATABASE db;
+
+1.a-)USE db;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2-)Yonetici Tablosunun Olusturulması:
+CREATE TABLE yonetici (id INT(50) NOT NULL AUTO_INCREMENT,k_adi VARCHAR(50) NOT NULL,telefon VARCHAR(50) NOT NULL,sifre VARCHAR(50),PRIMARY KEY (id));
+
+
+2.a-)Yoneti Eklenmesi:
+INSERT INTO yonetici (id,k_adi,telefon,sifre) VALUES (NULL,"yonetici123","05303672829","sifresifre2");
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3-)Kullanici Tablosunun Olusturulması:
+CREATE TABLE kullaniciTablo (id INT(50) NOT NULL AUTO_INCREMENT,k_adi VARCHAR(50) NOT NULL,eposta VARCHAR(50) NOT NULL,ad_soyad VARCHAR(50),
+telefon VARCHAR(50),dtarih DATE,adres VARCHAR(50),sifre VARCHAR(50),PRIMARY KEY (id));
+
+
+3.a)Kullanici Tablosuna Kullanici Ekleme:
+INSERT INTO kullaniciTablo (id,k_adi,eposta,ad_soyad,telefon,dtarih,adres,sifre) VALUES (NULL,"oguzozcann123","oguzhan@gmail.com","OguzhanOzcan",
+"05302899030","2000-10-12","TrabzonYomra","112233aa.");
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4-)Kurye Tablosuna Kurye Ekleme:
+CREATE TABLE kurye (id INT(50) NOT NULL AUTO_INCREMENT,ad_soyad VARCHAR(50) NOT NULL,telefon VARCHAR(50) NOT NULL,BosMu VARCHAR(25) NOT NULL,
+ilce VARCHAR(25) NOT NULL,PRIMARY KEY (id));
+
+
+4.a-)Kurye Tablosuna Kurye Ekleme:
+INSERT INTO kurye (id,ad_soyad,telefon,BosMu,ilce) VALUES (NULL,"Sinan Kiliclar","05302899032","pasif","Yomra");
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+5-)Sikayet Ve Oneri Tablosu Olusturma:
+CREATE TABLE sikayet (id INT NOT NULL AUTO_INCREMENT,sikayetOneri VARCHAR(100) NOT NULL,musteriNo VARCHAR(50) NOT NULL,PRIMARY KEY (id));
+
+
+5.a-)Sikayet Ve Öneri Tablosuna Veri Ekleme:
+INSERT INTO sikayet (id,sikayetOneri,musteriNo) VALUES (NULL,"Ornek bir sikayet.","1000");
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+6-)Kıyafet Tablosu Oluşturma:
+CREATE TABLE kiyafet (id INT(25) NOT NULL AUTO_INCREMENT,kategori VARCHAR(25) NOT NULL,beden VARCHAR(25) NOT NULL,renk VARCHAR(25) NOT NULL,fiyat VARCHAR(25) NOT NULL,
+PRIMARY KEY (id));
+
+
+6.a-)Kiyafet Tablosuna Ornek Veri Ekleme:
+INSERT INTO kiyafet (id,kategori,beden,renk,fiyat) VALUES (NULL,"Etek","XL","Siyah",1200.99);
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+7-)Fatura Tablosu Oluşturma:
+CREATE TABLE fatura (id INT(50) NOT NULL AUTO_INCREMENT,faturaNo VARCHAR(50) NOT NULL,kategori VARCHAR(50) NOT NULL,beden VARCHAR(50) NOT NULL,renk VARCHAR(50) NOT NULL,
+fiyat VARCHAR(50) NOT NULL,hesapNo VARCHAR(50) NOT NULL,baslangic TIME(6) NOT NULL,bitis TIME(6) NOT NULL,siparisDurumu VARCHAR(50) NOT NULL,PRIMARY KEY (id));
+
+
+7.a-)Fatura Tablosuna Ornek Veri Ekleme:
+INSERT INTO fatura (id,faturaNo,kategori,beden,renk,fiyat,hesapNo,baslangic,bitis,siparisDurumu) VALUES
+(NULL, "000050","Gomlek","S","Sari","121","100010","23:26:00","24:21:00","DevamEdiyor");
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
